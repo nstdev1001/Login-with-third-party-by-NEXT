@@ -23,6 +23,7 @@ import {
 import { useRouter } from "next/navigation";
 import { ModeToggle } from "@/components/mode-toggle";
 import { signIn, useSession } from "next-auth/react";
+import { api_url } from "@/api-url";
 
 const SignUpPage = () => {
   const router = useRouter();
@@ -62,11 +63,11 @@ const SignUpPage = () => {
   };
 
   const handleSignInWithGoogle = () => {
-    signIn("google", { callbackUrl: "http://localhost:3000/user" });
+    signIn("google", { callbackUrl: `${api_url}/user` });
   };
 
   const handleSignInWithFacebook = () => {
-    signIn("facebook", { callbackUrl: "http://localhost:3000/user" });
+    signIn("facebook", { callbackUrl: `${api_url}/user` });
   };
 
   return (
